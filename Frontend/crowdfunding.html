@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CultureFund - Support Indian Theatrical Arts</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #0d0d0d 100%);
+            min-height: 100vh;
+        }
+
+        /* Header Styles */
+        .header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffd700;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://mayan.mythologyworldwide.com/wp-content/uploads/2025/06/mayan.mythologyworldwide.com-From-the-Temple-to-the-Stage-The-Evolution-of-Mayan-Ritual-Dance.webp');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 2rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #333;
+            transform: translateY(-2px);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 4rem 2rem;
+            margin: 2rem 0;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            color: white;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Campaign Section */
+        .campaign-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: white;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .search-filter {
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+        }
+
+        .filter-select {
+            padding: 15px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            min-width: 150px;
+        }
+
+        .campaigns-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .campaign-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+        }
+
+        .campaign-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .campaign-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .campaign-content {
+            padding: 1.5rem;
+        }
+
+        .campaign-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .campaign-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .campaign-description {
+            margin-bottom: 1.5rem;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .progress-container {
+            margin-bottom: 1.5rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: #f0f0f0;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+            border-radius: 5px;
+            transition: width 0.3s ease;
+        }
+
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .campaign-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .btn-small {
+            padding: 8px 16px;
+            font-size: 0.9rem;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-donate {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            flex: 1;
+        }
+
+        .btn-share {
+            background: rgba(0, 0, 0, 0.1);
+            color: #333;
+        }
+
+        .btn-small:hover {
+            transform: translateY(-1px);
+        }
+
+        .social-share {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            padding: 8px;
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link.whatsapp { background: #25d366; }
+        .social-link.facebook { background: #3b5998; }
+        .social-link.instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        .social-link.twitter { background: #1da1f2; }
+
+        .social-link:hover {
+            transform: scale(1.1);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #f0f0f0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .qr-code-section {
+            text-align: center;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .qr-code-image {
+            max-width: 200px;
+            height: auto;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            margin-top: 0.5rem;
+        }
+
+        .success-popup {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .success-popup h2 {
+            color: #4ecdc4;
+            margin-bottom: 1rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .campaigns-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .search-filter {
+                flex-direction: column;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Notification Styles */
+        .notification {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: #4ecdc4;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+            z-index: 3000;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        .notification.error {
+            background: #ff6b6b;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <a href="#" class="logo">CultureFund</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#campaigns">Campaigns</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="hero-content">
+            <h1>Support Indian Theatrical Arts</h1>
+            <p>Fund traditional artists and cultural legends</p>
+            <div class="cta-buttons">
+                <button class="btn btn-primary" onclick="openModal('registerModal')">
+                    <i class="fas fa-plus"></i> Start Campaign
+                </button>
+                <button class="btn btn-secondary" onclick="scrollToSection('campaigns')">
+                    <i class="fas fa-heart"></i> Browse Campaigns
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-item">
+                <span class="stat-number" id="totalCampaigns">0</span>
+                <span class="stat-label">Active Campaigns</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="totalRaised">₹0</span>
+                <span class="stat-label">Total Raised</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="totalDonors">0</span>
+                <span class="stat-label">Total Donors</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="successRate">0%</span>
+                <span class="stat-label">Success Rate</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Campaign Section -->
+    <section class="campaign-section" id="campaigns">
+        <div class="section-header">
+            <h2>Live Campaigns</h2>
+            <p>Discover and support amazing cultural projects</p>
+        </div>
+
+        <div class="search-filter">
+            <input type="text" class="search-input" placeholder="Search campaigns..." id="searchInput">
+            <select class="filter-select" id="artformFilter">
+                <option value="">All Art Forms</option>
+                <option value="Classical Dance">Classical Dance</option>
+                <option value="Folk Dance">Folk Dance</option>
+                <option value="Theatre">Theatre</option>
+                <option value="Music">Music</option>
+                <option value="Painting">Painting</option>
+                <option value="Sculpture">Sculpture</option>
+            </select>
+            <select class="filter-select" id="locationFilter">
+                <option value="">All Locations</option>
+            </select>
+        </div>
+
+        <div class="campaigns-grid" id="campaignsGrid">
+            <div class="loading">
+                <div class="spinner"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+<section class="about-section" id="about">
+  <div class="section-header">
+    <h2>About CultureFund</h2>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBqrOhFJ85xxAjlW37_lYXtbLaE7Ap1xGxYA&s">
+    <h3>
+      India is home to a rich and diverse heritage of traditional artforms such as Classical Dance (Bharatanatyam, Kathak, Odissi), Folk Arts (Baul, Chhau, Kalbelia), Theatre (Yakshagana, Jatra), Music (Carnatic, Hindustani), and Visual Arts (Madhubani, Pattachitra, Miniature painting, sculpture).
+    </h3>
+    <p>
+      Unfortunately, many of these cultural expressions face extinction due to lack of exposure, financial support, and modernization. <strong>CultureFund</strong> empowers these artists by providing a platform to raise funds directly from people who believe in preserving India’s cultural legacy.
+    </p>
+    <p>
+      Crowdfunding is not just about financial aid — it builds community, visibility, and encouragement for traditional artists to sustain their craft with dignity and pride.
+    </p>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact-section" id="contact">
+  <div class="section-header">
+    <h2>Contact Us</h2>
+    <p>We'd love to hear from you! Whether you're an artist, donor, or cultural enthusiast — reach out to us.</p>
+    <p><strong>Email:</strong> support@culturefund.in</p>
+    <p><strong>Phone:</strong> +91-9876543210</p>
+    <p><strong>Address:</strong> CultureFund Office, 2nd Floor, Kala Bhavan, Mumbai, India</p>
+    <p><strong>Instagram:</strong> @culturefund.in</p>
+    <p><strong>Office Hours:</strong> Mon–Fri, 10 AM – 6 PM</p>
+  </div>
+</section>
+
+
+    <!-- Register Campaign Modal -->
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Register Your Campaign</h2>
+                <button class="close-btn" onclick="closeModal('registerModal')">&times;</button>
+            </div>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label class="form-label">Artist/Campaign Name *</label>
+                    <input type="text" class="form-input" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Art Form *</label>
+                    <select class="form-input" name="artform" required>
+                        <option value="">Select Art Form</option>
+                        <option value="Classical Dance">Classical Dance</option>
+                        <option value="Folk Dance">Folk Dance</option>
+                        <option value="Theatre">Theatre</option>
+                        <option value="Music">Music</option>
+                        <option value="Painting">Painting</option>
+                        <option value="Sculpture">Sculpture</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Location *</label>
+                    <input type="text" class="form-input" name="place" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Target Amount (₹) *</label>
+                    <input type="number" class="form-input" name="amount" min="1000" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Campaign Duration (Days) *</label>
+                    <input type="number" class="form-input" name="duration" min="1" max="365" value="30" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Short Description *</label>
+                    <textarea class="form-input form-textarea" name="about" required placeholder="Brief description of your campaign"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Detailed Overview</label>
+                    <textarea class="form-input form-textarea" name="overview" placeholder="Detailed description of your project, goals, and impact"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Campaign Video (Optional)</label>
+                    <input type="file" class="form-input" name="video" accept="video/*">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">QR Code for Payments (Optional)</label>
+                    <input type="file" class="form-input" name="qrCode" accept="image/*">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Art photo</label>
+                    <input type="file" class="form-input" name="photo" accept="image/*">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Contact Email *</label>
+                    <input type="email" class="form-input" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Contact Phone *</label>
+                    <input type="tel" class="form-input" name="phone" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                    <i class="fas fa-rocket"></i> Launch Campaign
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Donation Modal -->
+    <div class="modal" id="donationModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="donationTitle">Make a Donation</h2>
+                <button class="close-btn" onclick="closeModal('donationModal')">&times;</button>
+            </div>
+            <form id="donationForm">
+                <div class="form-group">
+                    <label class="form-label">Your Name *</label>
+                    <input type="text" class="form-input" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Email *</label>
+                    <input type="email" class="form-input" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Phone Number *</label>
+                    <input type="tel" class="form-input" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Donation Amount (₹) *</label>
+                    <input type="number" class="form-input" name="amount" min="1" required>
+                    <div style="margin-top: 0.5rem;">
+                        <button type="button" class="btn-small" onclick="setDonationAmount(100)">₹100</button>
+                        <button type="button" class="btn-small" onclick="setDonationAmount(500)">₹500</button>
+                        <button type="button" class="btn-small" onclick="setDonationAmount(1000)">₹1000</button>
+                        <button type="button" class="btn-small" onclick="setDonationAmount(5000)">₹5000</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">
+                        <input type="checkbox" name="anonymous" style="margin-right: 0.5rem;">
+                        Make this donation anonymous
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Message (Optional)</label>
+                    <textarea class="form-input" name="message" placeholder="Your message of support"></textarea>
+                </div>
+                <div class="qr-code-section" id="qrCodeSection" style="display: none;">
+                    <p><strong>Scan to Pay via UPI</strong></p>
+                    <img id="qrCodeImage" class="qr-code-image" alt="QR Code">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                    <i class="fas fa-heart"></i> Donate Now
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content success-popup">
+            <h2>🎉 Thank You!</h2>
+            <p id="successMessage">Your donation has been processed successfully.</p>
+            <button class="btn btn-primary" onclick="closeModal('successModal')">Close</button>
+        </div>
+    </div>
+
+    <!-- Campaign Details Modal -->
+    <div class="modal" id="campaignModal">
+        <div class="modal-content" style="max-width: 700px;">
+            <div class="modal-header">
+                <h2 class="modal-title" id="campaignModalTitle">Campaign Details</h2>
+                <button class="close-btn" onclick="closeModal('campaignModal')">&times;</button>
+            </div>
+            <div id="campaignModalContent">
+                <!-- Campaign details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <span id="notificationText"></span>
+    </div>
+
+   <script>
+const API_BASE = 'http://localhost:5000/api/campaigns'; // Change this in production
+
+// Utility: Scroll to section
+function scrollToSection(id) {
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+}
+
+// Modal handling
+function openModal(id) {
+  document.getElementById(id).classList.add('active');
+}
+function closeModal(id) {
+  document.getElementById(id).classList.remove('active');
+}
+
+// Set donation amount quick buttons
+function setDonationAmount(amount) {
+  document.querySelector('#donationForm input[name="amount"]').value = amount;
+}
+
+// Show notification
+function showNotification(msg, isError = false) {
+  const el = document.getElementById('notification');
+  el.classList.add('show');
+  el.classList.toggle('error', isError);
+  el.querySelector('#notificationText').textContent = msg;
+  setTimeout(() => el.classList.remove('show'), 3000);
+}
+
+// Load campaigns
+async function renderCampaigns() {
+  try {
+    const res = await fetch(`${API_BASE}`);
+    const data = await res.json();
+
+    campaigns = data;
+    const grid = document.getElementById('campaignsGrid');
+    grid.innerHTML = '';
+
+    if (campaigns.length === 0) {
+      grid.innerHTML = '<p style="color: white; text-align: center;">No campaigns found.</p>';
+      return;
+    }
+
+    campaigns.forEach(c => {
+      const percent = Math.min(100, Math.floor((c.amountRaised / c.amount) * 100));
+      const mediaTag = c.photo
+  ? `<img src="${API_BASE.replace('/api/campaigns', '')}/uploads/${c.photo}" class="campaign-image" style="width:100%; max-height:220px; object-fit:cover; border-radius:8px;">`
+  : ''; // or keep video fallback
+
+      const div = document.createElement('div');
+      div.className = 'campaign-card';
+      div.innerHTML = `
+        ${mediaTag}
+        <div class="campaign-content">
+          <div class="campaign-title">${c.name}</div>
+          <div class="campaign-meta"><span>${c.artform}</span><span>${c.place}</span></div>
+          <div class="campaign-description">${c.about}</div>
+          <div class="progress-container">
+            <div class="progress-bar"><div class="progress-fill" style="width:${percent}%"></div></div>
+            <div class="progress-info">
+              <span>₹${c.amountRaised}</span>
+              <span>${percent}% funded</span>
+            </div>
+          </div>
+          <div class="campaign-actions">
+            <button class="btn-small btn-donate" onclick="startDonation('${c._id}')">Donate</button>
+            <button class="btn-small btn-share" onclick="viewCampaignDetails('${c._id}')">Details</button>
+          </div>
+        </div>
+      `;
+      grid.appendChild(div);
+    });
+  } catch (err) {
+    showNotification('Failed to load campaigns.', true);
+  }
+}
+
+// Load stats
+async function updateStats() {
+  try {
+    const res = await fetch(`${API_BASE}/stats`);
+    const stats = await res.json();
+    document.getElementById('totalCampaigns').innerText = stats.totalCampaigns;
+    document.getElementById('totalRaised').innerText = `₹${stats.totalRaised}`;
+    document.getElementById('totalDonors').innerText = stats.totalDonors;
+    document.getElementById('successRate').innerText = `${stats.successRate}%`;
+  } catch (err) {
+    showNotification('Stats update failed.', true);
+  }
+}
+
+// Campaign registration
+document.getElementById('registerForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const form = e.target;
+  const formData = new FormData(form);
+
+  try {
+    const res = await fetch(`${API_BASE}/register`, {
+      method: 'POST',
+      body: formData
+    });
+
+    if (!res.ok) throw new Error('Registration failed');
+    const data = await res.json();
+    showNotification('Campaign launched successfully!');
+    form.reset();
+    closeModal('registerModal');
+    await renderCampaigns();
+    await updateStats();
+  } catch (err) {
+    showNotification(err.message, true);
+  }
+});
+
+// Donation logic
+let currentDonationId = null;
+function startDonation(id) {
+  currentDonationId = id;
+  openModal('donationModal');
+  const campaign = campaigns.find(c => c._id === id);
+  const qr = campaign.qrCode ? `${API_BASE.replace('/api/campaigns', '')}/uploads/${campaign.qrCode}` : null;
+  if (qr) {
+    document.getElementById('qrCodeSection').style.display = 'block';
+    document.getElementById('qrCodeImage').src = qr;
+  } else {
+    document.getElementById('qrCodeSection').style.display = 'none';
+  }
+}
+
+document.getElementById('donationForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const form = e.target;
+  const formData = new FormData(form);
+  const body = Object.fromEntries(formData.entries());
+  body.anonymous = form.anonymous.checked;
+
+  try {
+    const res = await fetch(`${API_BASE}/donate/${currentDonationId}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    });
+
+    if (!res.ok) throw new Error('Donation failed');
+    showNotification('Donation successful!');
+    form.reset();
+    closeModal('donationModal');
+    openModal('successModal');
+    await renderCampaigns();
+    await updateStats();
+  } catch (err) {
+    showNotification(err.message, true);
+  }
+});
+
+// Campaign detail viewer
+function viewCampaignDetails(id) {
+  const c = campaigns.find(c => c._id === id);
+  const baseURL = API_BASE.replace('/api/campaigns', '');
+
+  const videoTag = c.video
+    ? `<video controls style="width:100%; max-height:300px; border-radius:8px; margin-bottom:16px;">
+         <source src="${baseURL}/uploads/${c.video}" type="video/mp4">
+         Your browser does not support the video tag.
+       </video>`
+    : '';
+
+  document.getElementById('campaignModalTitle').innerText = c.name;
+  document.getElementById('campaignModalContent').innerHTML = `
+    ${videoTag}
+    <p><strong>Artform:</strong> ${c.artform}</p>
+    <p><strong>Location:</strong> ${c.place}</p>
+    <p><strong>Description:</strong><br>${c.about}</p>
+    <p><strong>Details:</strong><br>${c.overview}</p>
+    <p><strong>Target:</strong> ₹${c.amount} | Raised: ₹${c.amountRaised}</p>
+    <p><strong>Donors:</strong> ${c.donors}</p>
+    <p><strong>Email:</strong> ${c.email}</p>
+    <p><strong>Phone:</strong> ${c.phone}</p>
+  `;
+  openModal('campaignModal');
+}
+
+
+// Search + Filter campaigns
+function filterCampaigns() {
+  const search = document.getElementById('searchInput').value.toLowerCase();
+  const artform = document.getElementById('artformFilter').value;
+  const location = document.getElementById('locationFilter').value;
+
+  const filtered = campaigns.filter(c => {
+    return (
+      c.name.toLowerCase().includes(search) &&
+      (!artform || c.artform === artform) &&
+      (!location || c.place === location)
+    );
+  });
+
+  const grid = document.getElementById('campaignsGrid');
+  grid.innerHTML = '';
+  if (filtered.length === 0) {
+    grid.innerHTML = '<p style="color: white; text-align: center;">No matching campaigns.</p>';
+    return;
+  }
+
+  filtered.forEach(c => {
+    const percent = Math.min(100, Math.floor((c.amountRaised / c.amount) * 100));
+    const div = document.createElement('div');
+    div.className = 'campaign-card';
+    div.innerHTML = `
+      <img src="https://source.unsplash.com/400x200/?${encodeURIComponent(c.artform)}" class="campaign-image">
+      <div class="campaign-content">
+        <div class="campaign-title">${c.name}</div>
+        <div class="campaign-meta"><span>${c.artform}</span><span>${c.place}</span></div>
+        <div class="campaign-description">${c.about}</div>
+        <div class="progress-container">
+          <div class="progress-bar"><div class="progress-fill" style="width:${percent}%"></div></div>
+          <div class="progress-info">
+            <span>₹${c.amountRaised}</span>
+            <span>${percent}% funded</span>
+          </div>
+        </div>
+        <div class="campaign-actions">
+          <button class="btn-small btn-donate" onclick="startDonation('${c._id}')">Donate</button>
+          <button class="btn-small btn-share" onclick="viewCampaignDetails('${c._id}')">Details</button>
+        </div>
+      </div>
+    `;
+    grid.appendChild(div);
+  });
+}
+
+// Populate filter dropdowns dynamically
+function populateLocationFilter() {
+  const locations = [...new Set(campaigns.map(c => c.place))];
+  const locationFilter = document.getElementById('locationFilter');
+  locations.forEach(loc => {
+    const option = document.createElement('option');
+    option.value = loc;
+    option.textContent = loc;
+    locationFilter.appendChild(option);
+  });
+}
+
+// On DOM ready
+document.addEventListener('DOMContentLoaded', async () => {
+  await renderCampaigns();
+  await updateStats();
+  populateLocationFilter();
+  setupEventListeners();
+});
+
+function setupEventListeners() {
+  document.getElementById('searchInput').addEventListener('input', filterCampaigns);
+  document.getElementById('artformFilter').addEventListener('change', filterCampaigns);
+  document.getElementById('locationFilter').addEventListener('change', filterCampaigns);
+}
+</script>
+</body>
+</html>
